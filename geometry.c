@@ -1,8 +1,8 @@
+#include <ctype.h>
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 void print_error_position(const uint8_t space_count)
 {
     for (uint8_t i = 0; i < space_count; i++)
@@ -12,7 +12,7 @@ void print_error_position(const uint8_t space_count)
 
 int main()
 {
-	const char figure_name[]="circle";
+    const char figure_name[] = "circle";
     char str[100] = {'\0'};
     while (fgets(str, 100, stdin)) {
         if (str[0] == '\n')
@@ -22,15 +22,15 @@ int main()
 
         //уменьшаем регистр всех букв в строке
         for (uint8_t i = 0; str[i] != '\0'; i++) {
-          if (islower(str[i])!=0)
-          	str[i]=toupper(str[i]);
+            if (islower(str[i]) != 0)
+                str[i] = toupper(str[i]);
         }
         //поиск слова cirlce
-       
-        char* figure = strstr(str,figure);
+
+        char* figure = strstr(str, figure);
         if (figure == NULL) {
             print_error_position(0);
-            printf("Error at column 0: expected '%s'\n\n",figure_name);
+            printf("Error at column 0: expected '%s'\n\n", figure_name);
             continue;
         }
 
