@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 void print_error_position(const uint8_t space_count)
 {
     for (uint8_t i = 0; i < space_count; i++)
@@ -12,6 +12,7 @@ void print_error_position(const uint8_t space_count)
 
 int main()
 {
+	const char figure_name[]="circle";
     char str[100] = {'\0'};
     while (fgets(str, 100, stdin)) {
         if (str[0] == '\n')
@@ -21,23 +22,24 @@ int main()
 
         //уменьшаем регистр всех букв в строке
         for (uint8_t i = 0; str[i] != '\0'; i++) {
-            if (str[i] >= 65 && str[i] <= 90)
-                str[i] = str[i] + 32;
+          if (islower(str[i])!=0)
+          	str[i]=toupper(str[i]);
         }
         //поиск слова cirlce
-        char* figure = strstr(str, "circle");
+       
+        char* figure = strstr(str,figure);
         if (figure == NULL) {
             print_error_position(0);
-            printf("Error at column 0: expected 'circle'\n\n");
+            printf("Error at column 0: expected '%s'\n\n",figure_name);
             continue;
         }
 
         //поиск левой круглой скобки после cirlce
         char* l_bracket = strchr(str, '(');
         if (l_bracket == NULL || figure > l_bracket) {
-            print_error_position((figure + 6) - str);
+            print_error_position((figure + strlen(figure_name)) - str);
             printf("Error at column %ld: expected \'(\'\n\n",
-                   (figure + 6) - str);
+                   (figure + strlen(figure_name)) - str);
             continue;
         }
 
