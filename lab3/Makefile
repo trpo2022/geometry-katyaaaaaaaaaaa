@@ -1,17 +1,20 @@
-CFLAGS = -Wall -Werror 
+CFLAGS = -Wall -Werror
+BIN_DIR = ./bin
+SRC_DIR = ./src
+OBJ_DIR = ./obj
 
-mygeomprogram:  main.o libgeom.a
+$(BIN_DIR)/mygeomprogram:  $(OBJ_DIR)/main.o $(OBJ_DIR)/libgeom.a
 	gcc $(CFLAGS) $^ -o $@ -lm
 
-main.o: main.c
+$(OBJ_DIR)/main.o: $(SRC_DIR)/main.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
-libgeom.a: geom.o
-	ar rcs libgeom.a geom.o	
+$(OBJ_DIR)/libgeom.a: $(OBJ_DIR)/geom.o
+	ar rcs $(OBJ_DIR)/libgeom.a $(OBJ_DIR)/geom.o	
 
-geom.o: geom.c
+$(OBJ_DIR)/geom.o: $(SRC_DIR)/geom.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
 clean:
-	rm -rf *.o  *.a mygeomprogram
+	rm -rf $(OBJ_DIR)/*.o  $(OBJ_DIR)/*.a $(BIN_DIR)/mygeomprogram
 
