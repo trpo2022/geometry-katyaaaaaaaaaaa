@@ -1,16 +1,16 @@
 CFLAGS = -Wall -Werror 
 
-a.out:  main.o libgeom.a
-	gcc $(CFLAGS) main.o libgeom.a -lm
+mygeomprogram:  main.o libgeom.a
+	gcc $(CFLAGS) $^ -o $@ -lm
 
 main.o: main.c
-	gcc -c $(CFLAGS) main.c 
+	gcc -c $(CFLAGS) $< -o $@ 
 
 libgeom.a: geom.o
 	ar rcs libgeom.a geom.o	
 
 geom.o: geom.c
-	gcc -c $(CFLAGS) geom.c 
+	gcc -c $(CFLAGS) $< -o $@ 
 
 clean:
 	rm -rf *.o  *.a a.out
