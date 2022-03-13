@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Werror
+CFLAGS = -Wall -Werror -Isrc
 BIN_DIR = ./bin
 SRC_DIR = ./src
 OBJ_DIR = ./obj
