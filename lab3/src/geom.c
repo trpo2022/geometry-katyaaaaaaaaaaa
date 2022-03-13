@@ -9,7 +9,7 @@ void toLowerCase(char* str, int size) {
     //уменьшаем регистр всех букв в строке
       for (uint8_t i = 0; str[i] != '\0' && i<size; i++) {
             if (islower(str[i]) != 0)
-                str[i] = toupper(str[i])
+                str[i] = toupper(str[i]);
         }
 }
 
