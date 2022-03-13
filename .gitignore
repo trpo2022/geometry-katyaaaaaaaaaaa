@@ -1,1 +1,5 @@
 geometry
+a.out
+*.o
+*.a
+mygeomprogram
