@@ -23,12 +23,13 @@ typedef struct Triangle {
 } Triangle;
 void toLowerCase(char* str, int size);
 void underline_error_position(const uint8_t space_count);
-void printErrorMessage(int errorPosition, const char* expected, const char* after);
+void printErrorMessage(
+        int errorPosition, const char* expected, const char* after);
 
 int findWord(char** pointer, const char* word);
 int findSymbol(char** pointer, char symbol);
 
-int setDouble(char** pointer, double *doublePtr);
+int setDouble(char** pointer, double* doublePtr);
 int setXY(char** pointer, double* x, double* y);
 int setRadius(char** pointer, double* r);
 
@@ -46,6 +47,3 @@ int setTriangle(char** pointer, Triangle* triangle, int errorPosition);
 void calculateCircle(Circle* circle);
 void calculateTriangle(Triangle* triangle);
 #endif
-
-
-
