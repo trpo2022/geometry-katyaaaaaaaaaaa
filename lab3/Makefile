@@ -13,5 +13,5 @@ geom.o: geom.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
 clean:
-	rm -rf *.o  *.a a.out
+	rm -rf *.o  *.a mygeomprogram
 
