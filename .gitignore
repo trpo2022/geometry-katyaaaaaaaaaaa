@@ -2,4 +2,6 @@ geometry
 a.out
 *.o
 *.a
-mygeomprogram
+lab3/bin/mygeomprogram
+
+

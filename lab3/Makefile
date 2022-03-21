@@ -1,20 +1,27 @@
-CFLAGS = -Wall -Werror -Isrc
-BIN_DIR = ./bin
-SRC_DIR = ./src
-OBJ_DIR = ./obj
+APP_NAME = mygeomprogram
+LIB_NAME = libgeom
 
-$(BIN_DIR)/mygeomprogram:  $(OBJ_DIR)/main.o $(OBJ_DIR)/libgeom.a
+BIN_DIR = bin
+SRC_DIR = src
+OBJ_DIR = obj/src
+
+CFLAGS = -Wall -Werror -I$(SRC_DIR)/$(LIB_NAME)
+APP_PATH = $(BIN_DIR)/$(APP_NAME)
+LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
+
+
+$(APP_PATH):  $(OBJ_DIR)/$(APP_NAME)/main.o $(OBJ_DIR)/$(LIB_NAME)/libgeom.a
 	gcc $(CFLAGS) $^ -o $@ -lm
 
-$(OBJ_DIR)/main.o: $(SRC_DIR)/main.c
+$(OBJ_DIR)/$(APP_NAME)/main.o: $(SRC_DIR)/$(APP_NAME)/main.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
-$(OBJ_DIR)/libgeom.a: $(OBJ_DIR)/geom.o
-	ar rcs $(OBJ_DIR)/libgeom.a $(OBJ_DIR)/geom.o	
+$(OBJ_DIR)/$(LIB_NAME)/libgeom.a: $(OBJ_DIR)/$(LIB_NAME)/geom.o
+	ar rcs  $@ $< 
 
-$(OBJ_DIR)/geom.o: $(SRC_DIR)/geom.c
+$(OBJ_DIR)/$(LIB_NAME)/geom.o: $(SRC_DIR)/$(LIB_NAME)/geom.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
 clean:
-	rm -rf $(OBJ_DIR)/*.o  $(OBJ_DIR)/*.a $(BIN_DIR)/mygeomprogram
+	rm -rf $(OBJ_DIR)/*/*.o  $(OBJ_DIR)/$(LIB_NAME)/*.a $(BIN_DIR)/$(APP_NAME)
 
