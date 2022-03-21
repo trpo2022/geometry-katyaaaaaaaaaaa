@@ -1,5 +1,5 @@
-#include <geom.h>
 #include <ctype.h>
+#include <geom.h>
 #include <inttypes.h>
 #include <math.h>
 #include <stdio.h>
