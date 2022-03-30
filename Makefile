@@ -22,6 +22,8 @@ $(OBJ_DIR)/$(LIB_NAME)/libgeom.a: $(OBJ_DIR)/$(LIB_NAME)/geom.o
 $(OBJ_DIR)/$(LIB_NAME)/geom.o: $(SRC_DIR)/$(LIB_NAME)/geom.c
 	gcc -c $(CFLAGS) $< -o $@ 
 
+.PHONY: clean
+
 clean:
 	rm -rf $(OBJ_DIR)/*/*.o  $(OBJ_DIR)/$(LIB_NAME)/*.a $(BIN_DIR)/$(APP_NAME)
 
