@@ -9,8 +9,8 @@ void toLowerCase(char* str, int size)
 {
     //уменьшаем регистр всех букв в строке
     for (uint8_t i = 0; str[i] != '\0' && i < size; i++) {
-        if (islower(str[i]) != 0)
-            str[i] = toupper(str[i]);
+        if (isupper(str[i]) != 0)
+            str[i] = tolower(str[i]);
     }
 }
 
@@ -25,7 +25,7 @@ int findWord(char** pointer, const char* word)
 {
     //Коды возврата: -1 -- всё хорошо, n=>0 -- позиция ошибки
     char* start = *pointer;
-    char* end = strstr(start, word);
+    char* end = strstr(start, word); //   cicle
 
     //Проверка: искомого слова нет в строке
     if (end == NULL) {
@@ -260,8 +260,7 @@ int setCircle(char** pointer, Circle* circle, int errorPosition)
 
 double circlePerimeter(double r)
 {
-    double pi = 3.14159;
-    return pi * 2 * r;
+    return M_PI * 2 * r;
 }
 
 double trianglePerimeter(double a, double b, double c)
@@ -271,8 +270,7 @@ double trianglePerimeter(double a, double b, double c)
 
 double circleArea(double r)
 {
-    double pi = 3.14159;
-    return pi * r * r;
+    return M_PI * r * r;
 }
 double triangleArea(double a, double b, double c)
 {
@@ -286,7 +284,7 @@ void calculateCircle(Circle* circle)
     circle->area = circleArea(circle->radius);
 }
 
-double segmentLength(double x1, double y1, double x2, double y2)
+double segmentLength(double x1, double x2, double y1, double y2)
 {
     return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
@@ -316,7 +314,13 @@ int setTriangle(char** pointer, Triangle* triangle, int errorPosition)
         return errorPosition;
     }
     errorPosition = (*pointer) - start;
-
+    //Считываем вторую левую скобку
+    if ((err = findSymbol(pointer, '(')) != -1) {
+        errorPosition += err;
+        printErrorMessage(errorPosition, "(", "triangle");
+        return errorPosition;
+    }
+    errorPosition = (*pointer) - start;
     //Считываем координаты 1й точки
     if ((err = setXY(pointer, &(triangle->t1.x), &(triangle->t1.y))) != -1) {
         errorPosition += err;
@@ -386,6 +390,13 @@ int setTriangle(char** pointer, Triangle* triangle, int errorPosition)
     errorPosition = (*pointer) - start;
 
     //Считываем скобку
+    if ((err = findSymbol(pointer, ')')) != -1) {
+        errorPosition += err;
+        printErrorMessage(errorPosition, ")", "<double>");
+        return errorPosition;
+    }
+    errorPosition = (*pointer) - start;
+    //Считываем вторую скобку
     if ((err = findSymbol(pointer, ')')) != -1) {
         errorPosition += err;
         printErrorMessage(errorPosition, ")", "<double>");
