@@ -23,7 +23,7 @@ int main()
 
         if ((err = findWord(&strPtr, "circle")) == -1) {
             //Удачно прочли слово "circle"
-            err = strPtr - str;
+            err = strPtr - str; //   circle
             err = setCircle(&strPtr, &circle, err);
             if (err != -1) {
                 //Не удалось считать строку
@@ -32,7 +32,8 @@ int main()
             //Рассчитываем площадь и периметр
             calculateCircle(&circle);
             //выводим данные фигуры
-            printf("x=%lf\n"
+            printf("circle\n"
+                   "x=%lf\n"
                    "y=%lf\n"
                    "radius=%lf\n"
                    "perimetr=%lf\n"
@@ -53,7 +54,8 @@ int main()
             //Рассчитываем площадь и периметр
             calculateTriangle(&triangle);
             //выводим данные фигуры
-            printf("x1=%lf, y1=%lf\n"
+            printf("triangle\n"
+                   "x1=%lf, y1=%lf\n"
                    "x2=%lf, y2=%lf\n"
                    "x3=%lf, y3=%lf\n"
                    "perimetr=%lf\n"
