@@ -26,7 +26,7 @@ void underline_error_position(const uint8_t space_count);
 void printErrorMessage(
         int errorPosition, const char* expected, const char* after);
 
-int findWord(char** pointer, const char* word);
+int findWord(char** pointer, char* figureName, const char* word);
 int findSymbol(char** pointer, char symbol);
 
 int setDouble(char** pointer, double* doublePtr);
