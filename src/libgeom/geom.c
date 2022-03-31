@@ -21,11 +21,12 @@ void underline_error_position(const uint8_t space_count)
     printf("^\n");
 }
 
-int findWord(char** pointer, const char* word)
+int findWord(char** pointer,char* name, const char* word)
 {
     //Коды возврата: -1 -- всё хорошо, n=>0 -- позиция ошибки
     char* start = *pointer;
-    char* end = strstr(start, word); //   cicle
+    char* end = strstr(start, word); 
+    strcpy(name,word);
 
     //Проверка: искомого слова нет в строке
     if (end == NULL) {
