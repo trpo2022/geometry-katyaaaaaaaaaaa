@@ -33,18 +33,7 @@ int main()
             //Рассчитываем площадь и периметр
             calculateCircle(&circle);
             //выводим данные фигуры
-            printf("%s:\n"
-                   "x=%lf\n"
-                   "y=%lf\n"
-                   "radius=%lf\n"
-                   "perimetr=%lf\n"
-                   "area=%lf\n\n",
-                   figureName,
-                   circle.x,
-                   circle.y,
-                   circle.radius,
-                   circle.perimeter,
-                   circle.area);
+            printCircle(&circle, figureName);
         } else if ((err = findWord(&strPtr, figureName, "triangle")) == -1) {
             //Удачно прочли слово "triangle"
             err = strPtr - str;
@@ -56,21 +45,7 @@ int main()
             //Рассчитываем площадь и периметр
             calculateTriangle(&triangle);
             //выводим данные фигуры
-            printf("%s:\n"
-                   "x1=%lf, y1=%lf\n"
-                   "x2=%lf, y2=%lf\n"
-                   "x3=%lf, y3=%lf\n"
-                   "perimetr=%lf\n"
-                   "area=%lf\n\n",
-                   figureName,
-                   triangle.t1.x,
-                   triangle.t1.y,
-                   triangle.t2.x,
-                   triangle.t2.y,
-                   triangle.t3.x,
-                   triangle.t3.y,
-                   triangle.perimeter,
-                   triangle.area);
+            printTriangle(&triangle, figureName);
 
         } else {
             //Не смогли распознать первое слово

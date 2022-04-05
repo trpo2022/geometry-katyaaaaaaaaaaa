@@ -46,4 +46,7 @@ int setCircle(char** pointer, Circle* circle, int errorPosition);
 int setTriangle(char** pointer, Triangle* triangle, int errorPosition);
 void calculateCircle(Circle* circle);
 void calculateTriangle(Triangle* triangle);
+
+void printCircle(Circle* circle, char* figureName);
+void printTriangle(Triangle* triangle, char* figureName);
 #endif
