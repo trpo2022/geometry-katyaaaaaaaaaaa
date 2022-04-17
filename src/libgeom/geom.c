@@ -583,7 +583,7 @@ int isIntersectSegments(Point* t1, Point* t2, Point* p1, Point* p2)
     //полуплоскостях.
 
     //!ПЕРЕД РАСЧЕТОМ Предусматриваем ситуацию, когда это не функция f(x) (x =
-    //!const)
+    //! const)
     int p_constflag = 0;
     int t_constflag = 0;
     if (p2->x == p1->x) {
