@@ -5,7 +5,7 @@ BIN_DIR = bin
 SRC_DIR = src
 OBJ_DIR = obj/src
 
-CFLAGS =   -Wall -Werror -I$(SRC_DIR)/$(LIB_NAME) -Ithirdparty
+CFLAGS =   -Wall -Werror -I$(SRC_DIR)/$(LIB_NAME) -Ithirdpart
 APP_PATH = $(BIN_DIR)/$(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
