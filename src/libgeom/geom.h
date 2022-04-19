@@ -21,6 +21,17 @@ typedef struct Triangle {
     double perimeter;
     double area;
 } Triangle;
+
+typedef struct CircleArray {
+    Circle* elems;
+    int num;
+} CircleArray;
+
+typedef struct TriangleArray {
+    Triangle* elems;
+    int num;
+} TriangleArray;
+
 void toLowerCase(char* str, int size);
 void underline_error_position(const uint8_t space_count);
 void printErrorMessage(
@@ -40,7 +51,7 @@ double circlePerimeter(double r);
 double trianglePerimeter(double a, double b, double c);
 double circleArea(double r);
 double triangleArea(double a, double b, double c);
-double segmentLength(double x1, double y1, double x2, double y2);
+double segmentLength(double x1, double x2, double y1, double y2);
 
 int setCircle(char** pointer, Circle* circle, int errorPosition);
 int setTriangle(char** pointer, Triangle* triangle, int errorPosition);
@@ -49,4 +60,26 @@ void calculateTriangle(Triangle* triangle);
 
 void printCircle(Circle* circle, char* figureName);
 void printTriangle(Triangle* triangle, char* figureName);
+
+CircleArray* createCircleArray(void);
+void deleteCircleArray(CircleArray*);
+void addCircle(CircleArray*);
+void removeCircle(CircleArray*);
+void printCircleArray(CircleArray*);
+
+TriangleArray* createTriangleArray(void);
+void deleteTriangleArray(TriangleArray*);
+void addTriangle(TriangleArray*);
+void removeTriangle(TriangleArray*);
+void printTriangleArray(TriangleArray*);
+
+int isInto(double, double, double);
+int isIntersectTT(Triangle*, Triangle*);
+int isIntersectTC(Triangle*, Circle*);
+int isIntersectCC(Circle*, Circle*);
+int isIntersectSegments(Point*, Point*, Point*, Point*);
+int isIntersectTSegment(Point*, Point*, Triangle*);
+int isIntersectCSegment(Point*, Point*, Circle*);
+
+void printAll(CircleArray*, TriangleArray*);
 #endif
