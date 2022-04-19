@@ -470,6 +470,7 @@ void removeCircle(CircleArray* array)
     if (array->num == 1) {
         array->num--;
         free(array->elems);
+        array->elems = NULL;
         return;
     }
 
@@ -517,6 +518,7 @@ void removeTriangle(TriangleArray* array)
     if (array->num == 1) {
         array->num--;
         free(array->elems);
+        array->elems = NULL;
         return;
     }
 
