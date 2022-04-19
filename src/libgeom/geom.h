@@ -51,7 +51,7 @@ double circlePerimeter(double r);
 double trianglePerimeter(double a, double b, double c);
 double circleArea(double r);
 double triangleArea(double a, double b, double c);
-double segmentLength(double x1, double y1, double x2, double y2);
+double segmentLength(double x1, double x2, double y1, double y2);
 
 int setCircle(char** pointer, Circle* circle, int errorPosition);
 int setTriangle(char** pointer, Triangle* triangle, int errorPosition);
