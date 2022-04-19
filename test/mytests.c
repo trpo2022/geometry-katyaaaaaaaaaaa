@@ -6,7 +6,7 @@
 CTEST(suite1, isinto)
 {
     CTEST_LOG("checking isInto() function\n");
-    ASSERT_EQUAL(1, isInto(0, -1, -1));
+    ASSERT_EQUAL(1, isInto(0, -1, 1));
     ASSERT_EQUAL(0, isInto(-1, 1, 1));
     ASSERT_EQUAL(0, isInto(1, -1, 1));
     ASSERT_EQUAL(0, isInto(3, -1, 1));
